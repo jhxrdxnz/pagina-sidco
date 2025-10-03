@@ -1,0 +1,1 @@
+// Optional typing effect placeholder

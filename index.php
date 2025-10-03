@@ -392,9 +392,6 @@
     </div>
 </section>
 
-<!-- Initialize timeline -->
-<script src="views/js/timeline.js"></script>
-
 <!-- ===== FOOTER ===== -->
 <!-- Pie de página con información de contacto y enlaces -->
 <?php include 'views/footer.php'; ?>
