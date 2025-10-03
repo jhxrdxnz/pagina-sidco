@@ -1,0 +1,719 @@
+:root {
+  
+  --bg-color: #ffffff;
+  --text-color: #111111;
+  --muted-text: #444444;
+  --text-light: #4b5563; /* gris oscuro para modo claro */
+  --primary-color: #64b8c0; /* celeste */
+  --secondary-color: #64b8c0;
+  --accent-color: #64b8c0;
+  --border-color: #e5e7eb;
+  /* Footer variables para claro */
+  --bg-dark: #ffffff;
+  --bg-darker: #ffffff;
+  --text-white: #111111;
+  /* Para los pilares */
+  --pillar2-bg: #72b4bb;
+  --pillar1-bg: #8dbcc7; 
+  --pillar3-bg: #a4ccd9; 
+
+    --pillar-title-color: #111111; /* títulos principales */
+
+}
+
+[data-theme="dark"] {
+  --bg-color: #0a0a0a;
+  --text-color: #ffffff;
+  --muted-text: #cccccc;
+  --text-light: #cccccc; /* gris claro para modo oscuro */
+  --primary-color: #c60074; /* fucsia */
+  --secondary-color: #c60074;
+  --accent-color: #c60074;
+  --border-color: #333333;
+  /* Footer variables para oscuro */
+  --bg-dark: #1a1a1a;
+  --bg-darker: #0f0f0f;
+  --text-white: #ffffff;
+  
+  --pillar1-bg: #c60074; 
+  --pillar2-bg: #cd398f; 
+  --pillar3-bg: #ed53ad; 
+
+  --pillar-title-color: #ffffff; /* títulos principales */
+  --pillar-text-color: #ffffff;  /* texto dentro de los bloques */
+}
+
+html, body {
+  background: var(--bg-color) !important;
+  color: var(--text-color) !important;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+a.bg-dark, .bg-dark { background-color: var(--bg-color) !important; }
+
+a { color: inherit; }
+
+/* (Eliminado) estilos antiguos del botón de tema para evitar conflicto */
+.u-header, header.u-header {
+  background-color: rgba(0,0,0,0.0);
+  background: transparent;
+}
+[data-theme="dark"] .u-header, [data-theme="dark"] header.u-header {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+[data-theme="light"] .u-header, [data-theme="light"] header.u-header {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+}
+.u-nav a {
+  color: var(--text-color) !important;
+}
+[data-theme="light"] .u-nav a { color: #111111 !important; }
+[data-theme="light"] .u-menu .u-hamburger-link svg rect { fill: #111111 !important; }
+[data-theme="dark"] .u-menu .u-hamburger-link svg rect { fill: #ffffff !important; }
+.footer, .footer-bottom, .footer-newsletter { color: var(--text-white) !important; }
+.footer { background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%) !important; }
+.footer-bottom { background: var(--bg-darker) !important; }
+/* Tema claro: sección inferior del footer en gris */
+[data-theme="light"] .footer-bottom { background: #3a3a3a !important; color: #ffffff !important; }
+[data-theme="light"] .footer-bottom .footer-legal a { color: rgba(255, 255, 255, 0.9) !important; }
+[data-theme="light"] .footer-bottom .footer-legal a:hover { color: var(--primary-color) !important; }
+[data-theme="light"] .footer-bottom .company-info,
+[data-theme="light"] .footer-bottom .copyright p { color: rgba(255, 255, 255, 0.9) !important; }
+/* Tema claro: sección superior del footer en gris claro */
+[data-theme="light"] .footer-top { background: #eeeeee !important; }
+.footer-title, .brand-name { color: var(--text-white) !important; }
+.footer-links li a { color: var(--text-white) !important; }
+.footer-links li a:hover { color: var(--primary-color) !important; }
+.footer-separator { background: var(--primary-color) !important; }
+.btn-subscribe { background: var(--primary-color) !important; }
+.brand-description, .company-info { color: var(--text-white) !important; }
+
+/* ===== GALERÍA (vista portfolio) ===== */
+.sidebar {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+  border-right-color: var(--border-color) !important;
+}
+.sidebar-header { background-color: var(--bg-color) !important; color: var(--text-color) !important; }
+.sidebar-title { color: var(--text-color) !important; }
+.category-tabs { background-color: var(--bg-color) !important; }
+.category-tab { color: var(--text-color) !important; }
+.category-tab.active { background-color: var(--primary-color) !important; }
+.projects-container { color: var(--text-color) !important; }
+.project-card { background: var(--bg-color) !important; color: var(--text-color) !important; border: 1px solid var(--border-color) !important; }
+.project-title { color: var(--text-color) !important; }
+.project-location { color: var(--text-light) !important; }
+.project-description { color: var(--text-light) !important; }
+[data-theme="light"] .project-location,
+[data-theme="light"] .project-description { color: var(--text-color) !important; }
+.project-civil { border-left: 4px solid var(--civil-color) !important; }
+.project-network { border-left: 4px solid var(--network-color) !important; }
+.project-infrastructure { border-left: 4px solid var(--infrastructure-color) !important; }
+.projects-container *, .project-card *, .sidebar * { color: inherit !important; }
+/* Fondo general de la galería por tema */
+[data-theme="light"] #galeria-section { background-color: #ffffff !important; }
+[data-theme="dark"] #galeria-section { background-color: #0a0a0a !important; }
+.custom-popup .popup-title { color: var(--text-color) !important; }
+.custom-popup .popup-description { display:none !important; }
+.custom-popup .popup-location { display:none !important; }
+/* Popup: variantes de posición/estilo específicas */
+.custom-popup .popup-category.popup-category--tl {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  z-index: 3;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-color) !important;
+  border-bottom: 2px solid;
+  padding-bottom: 2px !important;
+}
+.custom-popup .popup-category.popup-category--tl.popup-redes { border-bottom-color: #e74c3c; }
+.custom-popup .popup-category.popup-category--tl.popup-civil { border-bottom-color: #3498db; }
+.custom-popup .popup-category.popup-category--tl.popup-infraestructura { border-bottom-color: #f39c12; }
+.custom-popup .popup-title.popup-title--center { text-align: center; margin-top: 8px; }
+
+/* Contenedor de imagen con overlay y CTA al hover */
+.custom-popup .popup-thumb-container {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  margin: 8px auto 6px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.custom-popup .popup-thumb-container .popup-thumb {
+  display: block;
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  transition: filter .35s ease;
+}
+.custom-popup .popup-thumb-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  transition: background .35s ease;
+  z-index: 1;
+}
+.custom-popup .popup-thumb-cta {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(.9);
+  background: var(--primary-color);
+  color: #fff !important;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: .95rem;
+  opacity: 0;
+  z-index: 2;
+  transition: opacity .25s ease, transform .25s ease;
+  text-decoration: none !important;
+}
+.custom-popup .popup-thumb-container:hover .popup-thumb { filter: brightness(.6); }
+.custom-popup .popup-thumb-container:hover::before { background: rgba(0,0,0,.45); }
+.custom-popup .popup-thumb-container:hover .popup-thumb-cta { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+/* Título del popup: centrado visual con margin auto */
+[data-theme="light"] .custom-popup .popup-title,
+[data-theme="dark"] .custom-popup .popup-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 8px auto 10px;
+  display: block;
+}
+/* Ajustes de popup Leaflet: centrado y límites para evitar desbordes */
+/* Contenido del popup: centrado y con margen interno consistente */
+[data-theme="light"] .custom-popup .leaflet-popup-content,
+[data-theme="dark"] .custom-popup .leaflet-popup-content {
+  text-align: center;
+  min-width: 260px;
+  overflow-wrap: anywhere;
+  box-sizing: border-box;
+  margin: 10px 12px !important;
+}
+.custom-popup .cta-button {
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
+  margin: 12px auto 0;
+  padding: 12px 16px !important;
+  font-size: 1.02rem !important;
+  font-weight: 600;
+  border-radius: 10px;
+  background: var(--primary-color) !important;
+  color: #ffffff !important;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Botón de popup según categoría */
+.custom-popup .cta-button.popup-civil { background-color: var(--civil-color) !important; }
+.custom-popup .cta-button.popup-network { background-color: var(--network-color) !important; }
+.custom-popup .cta-button.popup-infrastructure { background-color: var(--infrastructure-color) !important; }
+[data-theme="light"] .custom-popup .popup-title a,
+[data-theme="dark"] .custom-popup .popup-title a { color: var(--text-color) !important; }
+/* Chip de categoría: más grande, sin negrita y centrado */
+.custom-popup .popup-category {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 400 !important;
+  margin: 0 auto 6px;
+  color: #fff !important;
+}
+.custom-popup .popup-category.popup-civil { background-color: var(--civil-color) !important; }
+.custom-popup .popup-category.popup-network { background-color: var(--network-color) !important; }
+.custom-popup .popup-category.popup-infrastructure { background-color: var(--infrastructure-color) !important; }
+[data-theme="light"] .custom-popup .popup-title a,
+[data-theme="dark"] .custom-popup .popup-title a { color: var(--text-color) !important; }
+.custom-popup .leaflet-popup-content { color: var(--text-color) !important; }
+[data-theme="light"] .custom-popup .popup-inner,
+[data-theme="dark"] .custom-popup .popup-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+  width: 100%;
+}
+.custom-popup .popup-actions { width: 100%; display: flex; align-items: center; justify-content: center; }
+[data-theme="light"] .custom-popup .leaflet-popup-content * { color: #111111 !important; }
+[data-theme="dark"] .custom-popup .leaflet-popup-content * { color: #ffffff !important; }
+[data-theme="light"] .custom-popup .popup-description,
+[data-theme="light"] .custom-popup .popup-location { color: var(--text-color) !important; }
+
+/* Enlaces generales al pasar a claro/oscuro */
+a { color: var(--text-color); }
+[data-theme="dark"] a:hover { color: var(--primary-color); }
+[data-theme="light"] a:hover { color: var(--primary-color); }
+
+/* ===== Obras (páginas de detalle) ===== */
+.section-title { color: var(--text-white) !important; }
+.section-description { color: var(--text-white) !important; }
+.text-content { color: var(--text-color) !important; }
+.cta-button { background: var(--primary-color) !important; color: #fff !important; }
+.hero-title { color: var(--text-color) !important; }
+.hero-subtitle { color: var(--text-light) !important; }
+
+/* ===== Leaflet Popups por tema (manteniendo colores de categorías) ===== */
+/* Contenedor del popup */
+[data-theme="dark"] .leaflet-popup.custom-popup .leaflet-popup-content-wrapper {
+  background: #0f0f10 !important;
+  color: #ffffff !important;
+  border: 1px solid var(--border-color) !important;
+}
+[data-theme="dark"] .leaflet-popup.custom-popup .leaflet-popup-tip {
+  background: #0f0f10 !important;
+  border: 1px solid var(--border-color) !important;
+}
+[data-theme="light"] .leaflet-popup.custom-popup .leaflet-popup-content-wrapper {
+  background: #ffffff !important;
+  color: #111111 !important;
+  border: 1px solid var(--border-color) !important;
+}
+[data-theme="light"] .leaflet-popup.custom-popup .leaflet-popup-tip {
+  background: #ffffff !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* Título, descripción y etiquetas dentro del popup usan variables ya definidas */
+.custom-popup .popup-title { color: var(--text-color) !important; }
+.custom-popup .popup-description { color: var(--text-light) !important; }
+.custom-popup .popup-location { color: var(--text-light) !important; }
+
+/* Mantener colores de categoría (ya vienen de galeria.css) */
+.popup-civil { background-color: var(--civil-color) !important; }
+.popup-network { background-color: var(--network-color) !important; }
+.popup-infrastructure { background-color: var(--infrastructure-color) !important; }
+
+/* Controles Leaflet (zoom, attribution) legibles en ambos temas */
+.leaflet-container { color: var(--text-color) !important; }
+.leaflet-container a { color: var(--text-color) !important; }
+.leaflet-control-zoom a {
+  background: var(--bg-color) !important;
+  color: var(--text-color) !important;
+  border: 1px solid var(--border-color) !important;
+}
+.leaflet-control-zoom a:hover {
+  filter: brightness(0.96);
+}
+.leaflet-control-attribution {
+  background: rgba(255,255,255,0.8) !important;
+  color: #111111 !important;
+  border: 1px solid var(--border-color) !important;
+}
+[data-theme="dark"] .leaflet-control-attribution {
+  background: rgba(0,0,0,0.6) !important;
+  color: #ffffff !important;
+}
+/* (Eliminado) hover y decoración previos del botón de tema */
+
+/* Toggle animado (Uiverse) - RiccardoRapelli */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch #themeCheckbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2196f3;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.sun-moon {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: yellow;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+#themeCheckbox:checked + .slider {
+  background-color: black;
+}
+
+#themeCheckbox:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+#themeCheckbox:checked + .slider .sun-moon {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+  background-color: white;
+  -webkit-animation: rotate-center 0.6s ease-in-out both;
+  animation: rotate-center 0.6s ease-in-out both;
+}
+
+.moon-dot {
+  opacity: 0;
+  transition: 0.4s;
+  fill: gray;
+}
+
+#themeCheckbox:checked + .slider .sun-moon .moon-dot {
+  opacity: 1;
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round .sun-moon {
+  border-radius: 50%;
+}
+
+#moon-dot-1 {
+  left: 10px;
+  top: 3px;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  z-index: 4;
+}
+
+#moon-dot-2 {
+  left: 2px;
+  top: 10px;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  z-index: 4;
+}
+
+#moon-dot-3 {
+  left: 16px;
+  top: 18px;
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  z-index: 4;
+}
+
+#light-ray-1 {
+  left: -8px;
+  top: -8px;
+  position: absolute;
+  width: 43px;
+  height: 43px;
+  z-index: -1;
+  fill: white;
+  opacity: 10%;
+}
+
+#light-ray-2 {
+  left: -50%;
+  top: -50%;
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  z-index: -1;
+  fill: white;
+  opacity: 10%;
+}
+
+#light-ray-3 {
+  left: -18px;
+  top: -18px;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  z-index: -1;
+  fill: white;
+  opacity: 10%;
+}
+
+.cloud-light {
+  position: absolute;
+  fill: #eee;
+  animation-name: cloud-move;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+
+.cloud-dark {
+  position: absolute;
+  fill: #ccc;
+  animation-name: cloud-move;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-delay: 1s;
+}
+
+#cloud-1 { left: 30px; top: 15px; width: 40px; }
+#cloud-2 { left: 44px; top: 10px; width: 20px; }
+#cloud-3 { left: 18px; top: 24px; width: 30px; }
+#cloud-4 { left: 36px; top: 18px; width: 40px; }
+#cloud-5 { left: 48px; top: 14px; width: 20px; }
+#cloud-6 { left: 22px; top: 26px; width: 30px; }
+
+@keyframes cloud-move {
+  0% { transform: translateX(0px); }
+  40% { transform: translateX(4px); }
+  80% { transform: translateX(-4px); }
+  100% { transform: translateX(0px); }
+}
+
+.stars {
+  transform: translateY(-32px);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.star {
+  fill: white;
+  position: absolute;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  animation-name: star-twinkle;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+#themeCheckbox:checked + .slider .stars {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1;
+}
+
+#star-1 { width: 20px; top: 2px; left: 3px; animation-delay: 0.3s; }
+#star-2 { width: 6px; top: 16px; left: 3px; }
+#star-3 { width: 12px; top: 20px; left: 10px; animation-delay: 0.6s; }
+#star-4 { width: 18px; top: 0px; left: 18px; animation-delay: 1.3s; }
+
+@keyframes star-twinkle {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.2); }
+  80% { transform: scale(0.8); }
+  100% { transform: scale(1); }
+}
+
+/* Centrado estricto del contenido del popup */
+.custom-popup .leaflet-popup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Asegurar centrado visual de cada elemento */
+.custom-popup .popup-title { text-align: center; }
+.custom-popup .popup-category { text-align: center; }
+.custom-popup .cta-button { text-align: center; }
+
+/* Popup: normalizar alineación y tamaños sin desbordes */
+.leaflet-popup.custom-popup .leaflet-popup-content-wrapper { text-align: center; }
+.leaflet-popup.custom-popup .leaflet-popup-content {
+  display: block !important;
+  text-align: center !important;
+  padding: 12px 14px !important;
+}
+
+/* Título centrado, sin forzar width completo */
+.leaflet-popup.custom-popup .popup-title {
+  display: block;
+  margin: 8px auto 10px;
+  text-align: center;
+}
+
+/* Chip: ancho automático, centrado y sin ocupar todo el ancho */
+.leaflet-popup.custom-popup .popup-category {
+  display: inline-block !important;
+  width: auto !important;
+  max-width: 90%;
+  margin: 0 auto 6px;
+  text-align: center;
+}
+
+/* Acciones: flex centrado para contener el botón */
+.leaflet-popup.custom-popup .popup-actions {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100%;
+}
+
+/* Botón: bloque centrado, con ancho máximo fijo, sin desbordar */
+.leaflet-popup.custom-popup .popup-actions .cta-button {
+  display: block !important;
+  width: 100%;
+  max-width: 240px;
+  margin: 12px auto 0 !important;
+  padding: 12px 16px !important;
+  font-size: 1.02rem !important;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Evitar herencias previas que forzaban width:100% a todo */
+.leaflet-popup.custom-popup .popup-inner { display: block; width: auto; }
+
+/* Corrección final de centrado y desbordes en popups Leaflet */
+.leaflet-popup.custom-popup .leaflet-popup-content-wrapper {
+  text-align: center;
+}
+
+.leaflet-popup.custom-popup .leaflet-popup-content {
+  margin: 0 !important;            /* quitar margen por defecto que desplaza a la derecha */
+  padding: 12px 12px !important; /* padding simétrico */
+  width: 100% !important;
+  box-sizing: border-box;
+  text-align: center !important;
+}
+
+/* Forzar centrado de los tres elementos clave */
+.leaflet-popup.custom-popup .popup-category,
+.leaflet-popup.custom-popup .popup-title,
+.leaflet-popup.custom-popup .popup-actions {
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center !important;
+}
+
+/* Chip de categoría: auto ancho, centrado y con wrapping si es necesario */
+.leaflet-popup.custom-popup .popup-category {
+  display: inline-block;
+  max-width: 100%;
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* Contenedor de botón centrado */
+.leaflet-popup.custom-popup .popup-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Botón: centrado, sin desbordar, con wrapping permitido */
+.leaflet-popup.custom-popup .popup-actions .cta-button {
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
+  margin: 12px auto 0 !important;
+  padding: 12px 16px !important;
+  font-size: 1.02rem !important;
+  box-sizing: border-box;
+  white-space: normal;           /* permitir saltos de línea para evitar desbordes */
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Miniatura centrada entre título y chip */
+.custom-popup .popup-thumb {
+  display: block;
+  width: 100%;
+  max-width: 264px;
+  height: 144px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 4px auto 6px;
+}
+
+/* Centrado fiable del contenido del popup */
+.leaflet-popup.custom-popup .leaflet-popup-content {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 12px 14px !important;
+  width: auto !important;
+  box-sizing: border-box;
+  text-align: center !important;
+}
+
+/* Quitar widths forzados y centrar los elementos clave */
+.leaflet-popup.custom-popup .popup-category,
+.leaflet-popup.custom-popup .popup-title,
+.leaflet-popup.custom-popup .popup-actions {
+  width: auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  text-align: center !important;
+}
+
+/* Chip: inline-block centrado, sin desbordes */
+.leaflet-popup.custom-popup .popup-category {
+  display: inline-block !important;
+  max-width: 100%;
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* Botón: inline-block, límite de ancho y wrap si hace falta */
+.leaflet-popup.custom-popup .popup-actions {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.leaflet-popup.custom-popup .popup-actions .cta-button {
+  display: inline-block !important;
+  width: auto !important;
+  max-width: 240px !important;
+  margin: 12px auto 0 !important;
+  padding: 12px 16px !important;
+  font-size: 1.02rem !important;
+  box-sizing: border-box !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+}
+
+/* Forzar simetría de márgenes y centrado en todos los hijos del popup */
+.leaflet-popup.custom-popup .leaflet-popup-content * {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+/* Asegurar auto-centrado de elementos clave */
+.leaflet-popup.custom-popup .popup-title,
+.leaflet-popup.custom-popup .popup-category,
+.leaflet-popup.custom-popup .popup-actions,
+.leaflet-popup.custom-popup .popup-thumb {
+  align-self: center !important;
+}
+
+/* Compensar asimetría: aumentar padding derecho del contenido del popup */
+.leaflet-popup.custom-popup .leaflet-popup-content {
+  padding: 12px 20px 12px 12px !important; /* top right bottom left */
+}
+

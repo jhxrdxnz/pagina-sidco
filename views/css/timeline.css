@@ -1,0 +1,101 @@
+.timeline-progress {
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transition: width 0.5s ease;
+}
+.timeline-point {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    border: 3px solid var(--bg-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.timeline-point.active {
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+}
+.timeline-slide {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    position: absolute;
+    width: 100%;
+    color: var(--text-color);
+}
+.timeline-slide.active {
+    opacity: 1;
+    position: relative;
+}
+.timeline-image {
+    height: 0;
+    padding-bottom: 56.25%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+.timeline-image:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+}
+.timeline-detail {
+    background-color: var(--bg-dark);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    margin-right: 8px;
+    color: var(--text-light);
+    border: 1px solid var(--border-color);
+}
+.timeline-nav-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-color);
+}
+.timeline-nav-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    transform: scale(1.1);
+}
+.timeline-year-marker {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Adaptaciones específicas para modo oscuro */
+[data-theme="dark"] .timeline-point {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+[data-theme="dark"] .timeline-image {
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+}
+
+[data-theme="dark"] .timeline-image:hover {
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3);
+}
+
+[data-theme="dark"] .timeline-nav-btn {
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
+}

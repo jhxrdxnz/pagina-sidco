@@ -1,0 +1,49 @@
+.featured-article {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.featured-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.article-content {
+    margin-top: 1rem;
+}
+
+.article-title {
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+}
+
+.article-summary {
+    font-size: 1rem;
+    color: #666;
+}
+
+.article-body p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+.secondary-image img {
+    width: 40%;
+    height: auto;
+    margin-top: 1rem;
+    border-radius: 8px;
+    display: inline-block; /* asegura que se comporte como elemento centrable */
+}
+
+.article-meta {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.secondary-image {
+    text-align: center; /* centra la imagen horizontalmente */
+}
+

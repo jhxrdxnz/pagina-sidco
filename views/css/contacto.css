@@ -1,0 +1,190 @@
+.formulario-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+.formulario-izquierda {
+  flex: 1;
+  padding: 40px;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: background-color 0.35s ease;
+}
+
+.formulario-derecha {
+  flex: 1;
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  transition: background-color 0.35s ease;
+}
+
+.formulario-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.titulo-contacto {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 10px;
+  text-align: center;
+  transition: color 0.35s ease;
+}
+
+.subtitulo-contacto {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  text-align: center;
+  margin-bottom: 30px;
+  transition: color 0.35s ease;
+}
+
+.formulario-recadro {
+  background: var(--bg-color);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+  border: 1px solid var(--border-color);
+  transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+[data-theme="dark"] .formulario-recadro {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.contenido-derecha {
+  text-align: center;
+  max-width: 500px;
+}
+
+.titulo-derecha {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 20px;
+  transition: color 0.35s ease;
+}
+
+.texto-derecha {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-light);
+  text-align: justify;
+  transition: color 0.35s ease;
+}
+
+/* Estilos para los campos del formulario */
+.u-form-group {
+  margin-bottom: 20px;
+}
+
+.u-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: var(--text-color);
+  transition: color 0.35s ease;
+}
+
+.u-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: border-color 0.3s ease, background-color 0.35s ease, color 0.35s ease;
+}
+
+.u-input::placeholder {
+  color: var(--text-light);
+  opacity: 0.7;
+}
+
+.u-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(100, 184, 192, 0.25);
+}
+
+[data-theme="dark"] .u-input:focus {
+  box-shadow: 0 0 0 2px rgba(198, 0, 116, 0.25);
+}
+
+textarea.u-input {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.u-btn-submit {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.u-btn-submit:hover {
+  background-color: var(--primary-color);
+  filter: brightness(0.9);
+}
+
+.u-text-3 {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-top: 15px;
+  text-align: center;
+  transition: color 0.35s ease;
+}
+
+/* Estilos para reCAPTCHA */
+.g-recaptcha {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .formulario-container {
+    flex-direction: column;
+  }
+  
+  .formulario-izquierda,
+  .formulario-derecha {
+    flex: none;
+  }
+  
+  .formulario-izquierda {
+    padding: 20px;
+  }
+  
+  .formulario-derecha {
+    padding: 20px;
+  }
+  
+  .titulo-contacto {
+    font-size: 2rem;
+  }
+  
+  .titulo-derecha {
+    font-size: 2rem;
+  }
+}

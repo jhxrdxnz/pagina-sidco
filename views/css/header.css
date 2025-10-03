@@ -1,0 +1,178 @@
+
+
+
+/* Header base: fondo negro translúcido 80% */
+.u-header {
+  background-color: rgba(0, 0, 0, 0.8); /* color de fondo translúcido */
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.4); /* sombra alrededor del header */
+  position: relative; /* inicial: ocupa su espacio */
+  width: 100%; /* ocupa todo el ancho */
+  z-index: 999; /* por encima de otros elementos */
+  backdrop-filter: blur(5px); /* efecto vidrio opcional */
+  transition: top 0.3s, position 0.3s; /* anima el fijado al hacer scroll */
+}
+
+/* Header fijo al scrollear */
+.u-header.scrolled {
+  position: fixed; /* se fija respecto a la ventana */
+  top: 0; /* pegado a la parte superior */
+  left: 0; /* alineado al borde izquierdo */
+}
+
+/* Para desplazar el icono */
+.u-logo{
+  position: relative; /* permite desplazar sin sacar del flujo */
+  left: 50px; /* mueve el logo a la derecha */
+}
+
+/* Contenido interno */
+.u-nav {
+  list-style: none; /* sin viñetas */
+  display: flex; /* ítems en fila */
+  gap: 15px; /* espacio entre enlaces */
+}
+
+.u-nav a {
+  color: white; /* texto en blanco */
+  text-decoration: none; /* sin subrayado */
+  padding: 10px 18px; /* área clickeable más grande */
+  transition: color 0.3s ease, opacity 0.3s ease, transform 0.3s ease; /* transición suave */
+  display: inline-block; /* para que funcione el transform */
+  position: relative; /* para el pseudo-elemento */
+  opacity: 0.85; /* leve desvanecido por defecto */
+}
+
+/* Desvanecido al pasar el mouse/foco */
+.u-nav a:hover,
+.u-nav a:focus {
+  opacity: 1; /* aparece totalmente */
+}
+
+/* Efecto hover con línea y cambio de color */
+.u-nav a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color); /* usa el color primario del tema actual */
+  transition: width 0.3s ease;
+}
+
+/* Color específico de la línea para modo claro */
+[data-theme="light"] .u-nav a::before {
+  background: #008ba3; /* celeste más oscuro para mejor contraste */
+}
+
+.u-nav a:hover {
+  color: var(--primary-color) !important; /* cambio de color al hover usando variable del tema */
+  transform: translateX(5px); /* movimiento hacia la derecha */
+}
+
+/* Reglas específicas para asegurar que el hover funcione en ambos temas */
+[data-theme="light"] .u-nav a:hover {
+  color: #008ba3 !important; /* celeste más oscuro para mejor contraste en modo claro */
+}
+
+[data-theme="dark"] .u-nav a:hover {
+  color: var(--primary-color) !important; /* fucsia en modo oscuro */
+}
+
+.u-nav a:hover::before {
+  width: 100%; /* línea aparece de izquierda a derecha */
+}
+
+/* Animación Uiverse aplicada a enlaces del header con clase .box */
+.u-nav a.box {
+  width: 140px;
+  height: auto;
+  float: left;
+  transition: .5s linear; /* mantiene también transiciones previas */
+  display: block; /* para respetar diseño del efecto */
+  overflow: hidden;
+  padding: 15px; /* coincide con el snippet */
+  text-align: center;
+  margin: 0 5px;
+  background: transparent;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.u-nav a.box:before {
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 100%;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid transparent;
+  box-sizing: border-box;
+  transform: translateX(100%);
+}
+
+.u-nav a.box:after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-top: 4px solid transparent;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  transform: translateX(-100%);
+}
+
+.u-nav a.box:hover {
+  background: var(--primary-color);
+  color: #ffffff !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Fondo según tema */
+[data-theme="light"] .u-nav a.box:hover {
+  background: #008ba3;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .u-nav a.box:hover {
+  background: var(--primary-color);
+  color: #ffffff !important;
+}
+
+.u-nav a.box:hover:before {
+  border-color: #262626;
+  height: 100%;
+  transform: translateX(0);
+  transition: .3s transform linear, .3s height linear .3s;
+}
+
+.u-nav a.box:hover:after {
+  border-color: #262626;
+  height: 100%;
+  transform: translateX(0);
+  transition: .3s transform linear, .3s height linear .5s;
+}
+
+/* Menú responsive */
+.menu-collapse {
+  display: none; /* oculto en pantallas grandes */
+}
+
+@media (max-width: 768px) { /* breakpoint tablet/móvil */
+  .u-nav {
+    display: none; /* oculta navegación horizontal */
+  }
+  .menu-collapse {
+    display: block; /* muestra botón/menú hamburguesa */
+  }
+}
+
+/* Hero */
+.hero img {
+  display: block; /* elimina espacios de elementos inline */
+  width: 100%; /* ocupa todo el ancho disponible */
+  height: auto; /* mantiene proporciones */
+}
